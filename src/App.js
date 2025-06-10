@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TicketForm from './components/TicketForm';
+import BookingSummary from './components/BookingSummary';
 
 function App() {
+  const [booking, setBooking] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: "2rem", fontFamily: "Arial" }}>
+      <h1>🎟️ Ticket Booking System</h1>
+      <TicketForm onBooking={setBooking} />
+      <BookingSummary booking={booking} />
     </div>
   );
 }
